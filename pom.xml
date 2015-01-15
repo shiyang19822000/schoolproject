@@ -14,7 +14,7 @@
 	</modules>
 
     <properties>
-        <org.unitils.version>3.4.2</org.unitils.version>
+        <org.unitils.version>3.3</org.unitils.version>
         <br.com.infowhere.projectutils>1.0-SNAPSHOT</br.com.infowhere.projectutils>
     </properties>
 
@@ -75,7 +75,7 @@
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.7</version>
+				<version>4.9</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
