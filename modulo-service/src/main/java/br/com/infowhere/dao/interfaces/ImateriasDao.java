@@ -7,6 +7,14 @@ import java.util.List;
 
 public interface ImateriasDao {
 
-    List<Materia> todasMaterias();
+    Materia salvar(Materia materia);
+
+    Materia alterar(Materia materia);
+
+    void excluir(Materia materia);
+
+    public Materia buscarPorId(Long id);
+
+    public List<Materia> buscarTodos();
 
 }
