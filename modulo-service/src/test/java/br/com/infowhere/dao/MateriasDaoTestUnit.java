@@ -1,6 +1,8 @@
+package br.com.infowhere.dao;
+
 import br.com.infowhere.dao.interfaces.ImateriasDao;
 import br.com.infowhere.model.Materia;
-import config.DatabaseConfigTest;
+import br.com.infowhere.config.DatabaseConfigTest;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +23,7 @@ import static org.junit.Assert.assertEquals;
         @Sql(scripts = "/drop/drop_tables.sql", executionPhase = org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD)
 }
 )
-public class MateriasTestUnit {
+public class MateriasDaoTestUnit {
 
     @Autowired
     private ImateriasDao materiasDao;
