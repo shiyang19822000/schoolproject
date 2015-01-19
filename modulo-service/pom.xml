@@ -13,6 +13,11 @@
 
     <properties>
         <org.springframework>4.1.4.RELEASE</org.springframework>
+        <postgres>9.1-901-1.jdbc4</postgres>
+        <!--<hibernate.version>4.1.0.Final</hibernate.version>-->
+        <hibernate.version>3.5.6-Final</hibernate.version>
+        <guava.version>18.0</guava.version>
+
     </properties>
 
    <!--caso existam, declara os plugins especificos deste modulo 
@@ -41,18 +46,49 @@
    <!--declara as dependencias especificos deste modulo -->
     <dependencies>
 
-<!--        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
-        </dependency>-->
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
         <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.1</version>
-            <scope>compile</scope>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
+
+        <!--        <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-entitymanager</artifactId>
+                    <version>${hibernate.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-core</artifactId>
+                    <version>${hibernate.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-validator-annotation-processor</artifactId>
+                    <version>4.1.0.Final</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-validator</artifactId>
+                    <version>4.3.1.Final</version>
+                </dependency>-->
+
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -88,6 +124,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${org.springframework}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.1.Final</version>
         </dependency>
 
         <dependency>
