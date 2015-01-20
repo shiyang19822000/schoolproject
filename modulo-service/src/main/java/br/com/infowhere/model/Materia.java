@@ -9,7 +9,7 @@ public class Materia {
     @Id
     @Column(name = "idMateria",unique = true,nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idMateria;
+    private Long idMateria;
 
     @Column(name = "nomeMateria")
     private String nomeMateria;
@@ -21,16 +21,16 @@ public class Materia {
         this.nomeMateria = nomeMateria;
     }
 
-    public Materia(int idMateria,String nomeMateria){
+    public Materia(Long idMateria,String nomeMateria){
         this.idMateria = idMateria;
         this.nomeMateria = nomeMateria;
     }
 
-    public int getIdMateria() {
+    public Long getIdMateria() {
         return idMateria;
     }
 
-    public void setIdMateria(int idMateria) {
+    public void setIdMateria(Long idMateria) {
         this.idMateria = idMateria;
     }
 
@@ -49,7 +49,7 @@ public class Materia {
 
         Materia materia = (Materia) o;
 
-        if (idMateria != materia.idMateria) return false;
+        if (idMateria != null ? !idMateria.equals(materia.idMateria) : materia.idMateria != null) return false;
         if (nomeMateria != null ? !nomeMateria.equals(materia.nomeMateria) : materia.nomeMateria != null) return false;
 
         return true;
@@ -57,7 +57,7 @@ public class Materia {
 
     @Override
     public int hashCode() {
-        int result = idMateria;
+        int result = idMateria != null ? idMateria.hashCode() : 0;
         result = 31 * result + (nomeMateria != null ? nomeMateria.hashCode() : 0);
         return result;
     }

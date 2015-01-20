@@ -14,8 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= DatabaseConfigTest.class)
@@ -31,15 +30,15 @@ public class MateriasDaoTestUnit {
     private ImateriasDao materiasDao;
 
     @Test
-    public void validaQuantidadeMaterias(){
+    public void validarQuantidadeMaterias(){
         List<Materia> materias = materiasDao.buscarTodos();
         assertEquals(materias.size(),3);
     }
 
     @Test
-    public void validaPrimeiraMaterias(){
+    public void validarPrimeiraMaterias(){
         List<Materia> materias = materiasDao.buscarTodos();
-        assertEquals(materias.contains(new Materia(1,"Cobit")),true);
+        assertEquals(materias.contains(new Materia(1L,"Cobit")),true);
     }
 
     @Test
@@ -47,13 +46,34 @@ public class MateriasDaoTestUnit {
         Materia materia = new Materia("Banco de dados");
         Materia materiaPersistida = materiasDao.salvar(materia);
         assertNotNull(materiaPersistida.getIdMateria());
-        assertEquals(materiaPersistida.getIdMateria(),4);
+        assertTrue(materiaPersistida.getIdMateria().equals(4L));
 
         Materia materia2 = new Materia("Java");
         materiaPersistida = materiasDao.salvar(materia2);
         assertNotNull(materiaPersistida.getIdMateria());
-        assertEquals(materiaPersistida.getIdMateria(),5);
+        assertTrue(materiaPersistida.getIdMateria().equals(5L));
 
+    }
+
+    @Test
+    public void validarBuscaPorId(){
+        assertEquals(materiasDao.buscarPorId(1L).getNomeMateria().toUpperCase(), "COBIT");
+    }
+
+    @Test
+    public void validarAlteracao(){
+        Materia materia = materiasDao.buscarPorId(1L);
+        materia.setNomeMateria("Redes");
+        Materia materiaPersistida = materiasDao.alterar(materia);
+
+        assertEquals(materiasDao.buscarPorId(1L).getNomeMateria().toUpperCase(), "REDES");
+        assertEquals(materiaPersistida.getNomeMateria().toUpperCase(), "REDES");
+    }
+
+    @Test
+    public void validarExclusao(){
+        materiasDao.excluir(materiasDao.buscarPorId(1L));
+        assertNull(materiasDao.buscarPorId(1L));
     }
 
 }
