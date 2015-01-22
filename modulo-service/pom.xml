@@ -17,7 +17,6 @@
         <!--<hibernate.version>4.1.0.Final</hibernate.version>-->
         <hibernate.version>3.5.6-Final</hibernate.version>
         <guava.version>18.0</guava.version>
-
     </properties>
 
    <!--caso existam, declara os plugins especificos deste modulo 
@@ -51,6 +50,12 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
         </dependency>
 
         <dependency>

@@ -6,6 +6,9 @@
     <title>Teste</title>
 </head>
 <body>
-Teste
+
+<p>This is a home page.</p>
+<p><a href="/hello">Say Hello</a></p>
+
 </body>
 </html>
