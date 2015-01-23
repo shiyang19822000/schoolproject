@@ -3,12 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Teste</title>
+    <title>Materias</title>
 </head>
 <body>
 
-<p>This is a home page.</p>
-<p><a href="/hello">Say Hello</a></p>
+<p>Materias.</p>
+<p><a href="/materia/todas">Materias</a></p>
 
 </body>
 </html>
