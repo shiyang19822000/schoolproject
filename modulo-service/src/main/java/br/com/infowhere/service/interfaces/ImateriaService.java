@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ImateriaService {
 
-    List<Materia> todasMaterias();
+    List<Materia> todos();
 
     Materia salvar(Materia materia);
 

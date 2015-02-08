@@ -51,4 +51,8 @@ public abstract class CrudService<T> {
         this.classePersistencia = classePersistencia;
     }
 
+    public EntityManager getEntityManager(){
+        return entityManager;
+    }
+
 }

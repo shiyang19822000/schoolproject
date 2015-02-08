@@ -16,7 +16,7 @@ public class MateriaService implements ImateriaService{
     @Autowired
     private ImateriasDao materiasDao;
 
-    public List<Materia> todasMaterias(){
+    public List<Materia> todos(){
         return materiasDao.buscarTodos();
     }
 

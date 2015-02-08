@@ -29,13 +29,13 @@ public class MateriasServiceTestUnit {
 
     @Test
     public void validaQuantidadeMaterias(){
-        List<Materia> materias = materiasService.todasMaterias();
+        List<Materia> materias = materiasService.todos();
         assertEquals(materias.size(),3);
     }
 
     @Test
     public void validaPrimeiraMaterias(){
-        List<Materia> materias = materiasService.todasMaterias();
+        List<Materia> materias = materiasService.todos();
         assertEquals(materias.contains(new Materia(1L,"Cobit")),true);
     }
 

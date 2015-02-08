@@ -16,6 +16,7 @@
     <properties>
         <org.unitils.version>3.3</org.unitils.version>
         <br.com.infowhere.projectutils>1.0-SNAPSHOT</br.com.infowhere.projectutils>
+        <apache-shiro-version>1.2.3</apache-shiro-version>
     </properties>
 
 	<build>
@@ -157,6 +158,18 @@
                 <version>${br.com.infowhere.projectutils}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${apache-shiro-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${apache-shiro-version}</version>
+            </dependency>
+
             <!-- FIM Unitils -->
 
 	        </dependencies>
@@ -226,6 +239,16 @@
         <dependency>
             <groupId>org.unitils</groupId>
             <artifactId>unitils-orm</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
         </dependency>
 
     </dependencies>

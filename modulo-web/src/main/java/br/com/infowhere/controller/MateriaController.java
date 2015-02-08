@@ -28,7 +28,6 @@ public class MateriaController {
     @RequestMapping(value = "/alterarmateria/{idMateria}", method = RequestMethod.GET)
     public String alterarMateria(@PathVariable("idMateria") Long idMateria, Model model) {
 
-        System.out.println("VOU ALTERAR");
         model.addAttribute("materia", materiaService.recuperarPorId(idMateria));
 
         return "materia";
@@ -37,9 +36,6 @@ public class MateriaController {
     @RequestMapping(value = "/salvarmateria", method = RequestMethod.POST)
     public String salvarMateria(@Valid @ModelAttribute("materia") Materia materia,Model model) {
 
-        System.out.println("----------------- > > > ID - - - > > " + materia.getIdMateria());
-        System.out.println("----------------- > > > nomeeee - - - > > " + materia.getNomeMateria());
-
         if(materia.getIdMateria()==null){
             materiaService.salvar(materia);
         }else{
@@ -47,13 +43,13 @@ public class MateriaController {
         }
 
         model.addAttribute("materia", null);
-        model.addAttribute("materias", materiaService.todasMaterias());
+        model.addAttribute("materias", materiaService.todos());
         return "redirect:/materia/todas";
     }
 
     @RequestMapping(value = "/todas", method = RequestMethod.GET)
     public String todasMateria(Model model) {
-        model.addAttribute("materias", materiaService.todasMaterias());
+        model.addAttribute("materias", materiaService.todos());
         return "materia";
     }
 
