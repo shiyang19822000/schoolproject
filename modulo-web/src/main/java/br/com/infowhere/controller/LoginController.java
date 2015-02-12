@@ -50,6 +50,10 @@ public class LoginController {
             return "redirect:/";
         }
 
+        if(user.hasRole("teste")){
+            System.out.println("TA NA ROLE TESTE");
+        }
+
         return "redirect:/index";
     }
 
