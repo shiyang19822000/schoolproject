@@ -19,8 +19,12 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= DatabaseConfigTest.class)
 @SqlGroup({
-        @Sql({"/materia/create_table_materia.sql", "/materia/insert_table_materia.sql"}),
-        @Sql(scripts = "/drop/drop_tables.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+        @Sql({"/materia/create_table_materia.sql",
+                "/scripts/create_tables.sql",
+                "/materia/insert_table_materia.sql",
+                "/scripts/insert_table.sql"}),
+        @Sql(scripts = "/drop/drop_tables.sql",
+                executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 }
 )
 @Transactional
@@ -32,7 +36,7 @@ public class UsuarioDaoTestUnit {
     @Test
     public void validarQuantidadeUsuarios(){
         List<Usuario> usuarios = usuarioDao.buscarTodos();
-        assertEquals(usuarios.size(),2);
+        assertEquals(usuarios.size(),3);
     }
 
     @Test
@@ -52,12 +56,12 @@ public class UsuarioDaoTestUnit {
         Usuario usuario = new Usuario("joaquim","jsenha","joaquim@gmail.com");
         Usuario usuarioPersistida = usuarioDao.salvar(usuario);
         assertNotNull(usuarioPersistida.getIdUsuario());
-        assertTrue(usuarioPersistida.getIdUsuario().equals(3L));
+        assertTrue(usuarioPersistida.getIdUsuario().equals(4L));
 
         Usuario usuario2 = new Usuario("maria","msenha","maria@gmail.com");
         usuarioPersistida = usuarioDao.salvar(usuario2);
         assertNotNull(usuarioPersistida.getIdUsuario());
-        assertTrue(usuarioPersistida.getIdUsuario().equals(4L));
+        assertTrue(usuarioPersistida.getIdUsuario().equals(5L));
 
     }
 

@@ -21,11 +21,6 @@ public class Usuario {
     @Column(name = "emailUsuario")
     private String emailUsuario;
 
-
-/*    @ManyToMany
-    @JoinTable(name="grupo_usuario",
-            joinColumns={@JoinColumn(name="idusuario", referencedColumnName="idusuario")},
-            inverseJoinColumns={@JoinColumn(name="idPapel", referencedColumnName="idPapel")})*/
     @OneToMany(mappedBy = "usuario",targetEntity = GrupoUsuario.class,orphanRemoval = true)
     private Set<GrupoUsuario> grupoUsuarios;
 

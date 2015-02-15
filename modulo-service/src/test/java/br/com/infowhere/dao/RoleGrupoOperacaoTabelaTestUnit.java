@@ -1,13 +1,19 @@
 package br.com.infowhere.dao;
 
 import br.com.infowhere.config.DatabaseConfigTest;
+import br.com.infowhere.dao.interfaces.IroleGrupoOperacaoTabelaDao;
+import br.com.infowhere.model.RoleGrupoOperacaoTabela;
+import br.com.infowhere.model.Usuario;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -25,9 +31,14 @@ import static org.junit.Assert.assertEquals;
 @Transactional
 public class RoleGrupoOperacaoTabelaTestUnit {
 
+    @Autowired
+    private IroleGrupoOperacaoTabelaDao roleGrupoOperacaoTabelaDao;
+
      @Test
-     public void executaTeste(){
-         assertEquals(true,true);
+     public void recuperaRolesUsuario(){
+         Usuario usuario = new Usuario(1L);
+         List<RoleGrupoOperacaoTabela> rolesUsuario = roleGrupoOperacaoTabelaDao.recuperarRolesUsuario(usuario);
+         assertEquals(rolesUsuario.size(),5);
      }
 
 }

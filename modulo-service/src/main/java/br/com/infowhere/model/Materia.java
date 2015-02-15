@@ -2,8 +2,8 @@ package br.com.infowhere.model;
 
 import javax.persistence.*;
 
-/*@Entity
-@Table(name = "Materias")*/
+@Entity
+@Table(name = "Materias")
 public class Materia {
 
     @Id
