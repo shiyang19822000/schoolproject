@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,7 +7,10 @@
 </head>
 <body>
 <br>
-<p><a href="/materia/novamateria">Nova materia</a></p>
+<shiro:hasRole name="materia:inserir">
+    <p><a href="/materia/novamateria">Nova materia</a></p>
+</shiro:hasRole>
+
 <hr>
 
 <%--<div id="idDivMateria" hidden="true">--%>

@@ -25,4 +25,13 @@ public class UsuarioDao extends CrudService<Usuario> implements IusuarioDao {
         return query.getSingleResult();
 
     }
+
+    @Override
+    public Usuario buscaPorEmail(String email) {
+        TypedQuery<Usuario> query = getEntityManager().createQuery("from Usuario usuario where usuario.emailUsuario=?", Usuario.class);
+
+        query.setParameter(1, email);
+
+        return query.getSingleResult();
+    }
 }

@@ -52,6 +52,13 @@ public class UsuarioDaoTestUnit {
     }
 
     @Test
+    public void validarBuscaEmail(){
+        Usuario usuarioBusca = usuarioDao.buscaPorEmail("ltsiciliano@gmail.com");
+        assertNotNull(usuarioBusca.getIdUsuario());
+        assertEquals(usuarioBusca.getNomeUsuario(),"leandro");
+    }
+
+    @Test
     public void salvarUsuario(){
         Usuario usuario = new Usuario("joaquim","jsenha","joaquim@gmail.com");
         Usuario usuarioPersistida = usuarioDao.salvar(usuario);

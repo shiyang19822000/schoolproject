@@ -19,4 +19,6 @@ public interface IusuarioDao {
 
     public Usuario buscaPorEmailESenha(String email, String senha);
 
+    public Usuario buscaPorEmail(String email);
+
 }
