@@ -41,4 +41,10 @@ public class RoleGrupoOperacaoTabelaTestUnit {
          assertEquals(rolesUsuario.size(),5);
      }
 
+    @Test
+    public void recuperaTodasRoles(){
+        List<RoleGrupoOperacaoTabela> roles = roleGrupoOperacaoTabelaDao.buscarTodos();
+        assertEquals(roles.size(),7);
+    }
+
 }

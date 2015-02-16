@@ -9,17 +9,16 @@
 </head>
 <body>
 <br>
-<shiro:hasRole name="materia:inserir">
+<%--<shiro:hasRole name="materia:inserir">
     <p><a href="/materia/novamateria">Nova materia</a></p>
-</shiro:hasRole>
+</shiro:hasRole>--%>
 
 <%--<h1><s:message code="teste.teste"/></h1>--%>
 
 <hr>
 
-<%--<div id="idDivMateria" hidden="true">--%>
-    <c:if test="${not empty materia}">
-        <form action="/materia/salvarmateria" method="post">
+    <c:if test="${not empty role}">
+<%--        <form action="/materia/salvarmateria" method="post">
             <label>Nome materia</label>
 
             <input type="hidden" id="idMateria" name="idMateria" value="${materia.idMateria}">
@@ -34,25 +33,26 @@
             </c:choose>
 
             <input type="submit" value="Salvar matéria">
-        </form>
+        </form>--%>
     </c:if>
-<%--</div>--%>
 
 <br>
-    <c:if test="${not empty materias}">
+    <c:if test="${not empty roles}">
 
         <table>
             <tr>
-                <th>Id</th>
-                <td>Nome matéria</td>
+                <th>Grupo</th>
+                <td>Operação</td>
+                <td>Tabela</td>
                 <td>Ações</td>
             </tr>
 
-                <c:forEach var="materiaItem" items="${materias}">
+                <c:forEach var="roleItem" items="${roles}">
                     <tr>
-                        <td>${materiaItem.idMateria}</td>
-                        <td>${materiaItem.nomeMateria}</td>
-                        <td><a href="/materia/alterarmateria/${materiaItem.idMateria}">Alterar</a></td>
+                        <td>${roleItem.grupo.nomeGrupo}</td>
+                        <td>${roleItem.operacao.nomeOperacao}</td>
+                        <td>${roleItem.tabela.nomeTabela}</td>
+                        <td></td>
                     </tr>
                 </c:forEach>
 

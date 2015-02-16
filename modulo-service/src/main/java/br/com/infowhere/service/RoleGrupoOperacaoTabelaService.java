@@ -1,7 +1,6 @@
 package br.com.infowhere.service;
 
 import br.com.infowhere.dao.interfaces.IroleGrupoOperacaoTabelaDao;
-import br.com.infowhere.model.Materia;
 import br.com.infowhere.model.RoleGrupoOperacaoTabela;
 import br.com.infowhere.model.Usuario;
 import br.com.infowhere.service.interfaces.IroleGrupoOperacaoTabelaService;
@@ -19,25 +18,24 @@ public class RoleGrupoOperacaoTabelaService implements IroleGrupoOperacaoTabelaS
     private IroleGrupoOperacaoTabelaDao roleGrupoOperacaoTabelaDao;
 
     @Override
-    public List<Materia> todos() {
+    public List<RoleGrupoOperacaoTabela> todos() {
+        return roleGrupoOperacaoTabelaDao.buscarTodos();
+    }
+
+    @Override
+    public RoleGrupoOperacaoTabela salvar(RoleGrupoOperacaoTabela roleGrupoOperacaoTabela) {
         return null;
         //TODO falta implementar
     }
 
     @Override
-    public Materia salvar(Materia materia) {
+    public RoleGrupoOperacaoTabela recuperarPorId(Long id) {
         return null;
         //TODO falta implementar
     }
 
     @Override
-    public Materia recuperarPorId(Long id) {
-        return null;
-        //TODO falta implementar
-    }
-
-    @Override
-    public Materia alterar(Materia materia) {
+    public RoleGrupoOperacaoTabela alterar(RoleGrupoOperacaoTabela roleGrupoOperacaoTabela) {
         return null;
         //TODO falta implementar
     }

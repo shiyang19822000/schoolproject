@@ -1,6 +1,5 @@
 package br.com.infowhere.service.interfaces;
 
-import br.com.infowhere.model.Materia;
 import br.com.infowhere.model.RoleGrupoOperacaoTabela;
 import br.com.infowhere.model.Usuario;
 
@@ -8,13 +7,13 @@ import java.util.List;
 
 public interface IroleGrupoOperacaoTabelaService {
 
-    List<Materia> todos();
+    List<RoleGrupoOperacaoTabela> todos();
 
-    Materia salvar(Materia materia);
+    RoleGrupoOperacaoTabela salvar(RoleGrupoOperacaoTabela roleGrupoOperacaoTabela);
 
-    Materia recuperarPorId(Long id);
+    RoleGrupoOperacaoTabela recuperarPorId(Long id);
 
-    Materia alterar(Materia materia);
+    RoleGrupoOperacaoTabela alterar(RoleGrupoOperacaoTabela roleGrupoOperacaoTabela);
 
     List<RoleGrupoOperacaoTabela> recuperarRolesUsuario(Usuario usuario);
 
