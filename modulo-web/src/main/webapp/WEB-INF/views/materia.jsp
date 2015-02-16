@@ -1,6 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+
 <html>
 <head>
     <title></title>
@@ -10,6 +12,8 @@
 <shiro:hasRole name="materia:inserir">
     <p><a href="/materia/novamateria">Nova materia</a></p>
 </shiro:hasRole>
+
+<h1><s:message code="teste.teste"/></h1>
 
 <hr>
 
