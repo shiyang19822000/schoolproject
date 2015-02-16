@@ -3,6 +3,7 @@ package br.com.infowhere.controller;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +34,7 @@ public class LoginController {
 
         UsernamePasswordToken token = new UsernamePasswordToken(request.getParameter("emailUsuario"),request.getParameter("senhaUsuario"));
 
-        org.apache.shiro.subject.Subject user = SecurityUtils.getSubject();
+        Subject user = SecurityUtils.getSubject();
         try{
             user.login(token);
         }
@@ -50,11 +51,26 @@ public class LoginController {
             return "redirect:/";
         }
 
-        if(user.hasRole("teste")){
+        /*if(user.hasRole("teste")){
             System.out.println("TA NA ROLE TESTE");
-        }
+        }*/
 
         return "redirect:/index";
+    }
+
+    @RequestMapping(value="/logout",method = RequestMethod.GET)
+    public String efetuarLogoutGet(){
+        return efetuarLogout();
+    }
+
+    @RequestMapping(value="/logout",method = RequestMethod.POST)
+    public String efetuarLogoutPost(){
+        return efetuarLogout();
+    }
+
+    private String efetuarLogout(){
+        SecurityUtils.getSubject().logout();
+        return "redirect:/";
     }
 
 }

@@ -7,6 +7,8 @@
 </head>
 <body>
 
+<p><a href="/logout">Logout</a></p>
+
 <p>Materias.</p>
 <p><a href="/materia/todas">Materias</a></p>
 
