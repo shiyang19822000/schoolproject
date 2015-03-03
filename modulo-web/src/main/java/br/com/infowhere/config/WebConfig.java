@@ -21,6 +21,7 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 
 @EnableWebMvc
 @Configuration
@@ -65,6 +66,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return messageSource;
     }
 
+    @Bean
+    public TilesConfigurer getTilesConfigurer() {
+        TilesConfigurer tilesConfigurer = new TilesConfigurer();
+        tilesConfigurer.setCheckRefresh(true);
+        tilesConfigurer.setDefinitions(new String[] { "/WEB-INF/tiles.xml" });
+        return tilesConfigurer;
+    }
+
     /*
     *
 
@@ -81,6 +90,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     */
+
+    /*@Bean
+    public UrlBasedViewResolver setupViewResolver() {
+        TilesViewResolver resolver = new TilesViewResolver();
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(TilesView.class);
+        return resolver;
+    }*/
 
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
