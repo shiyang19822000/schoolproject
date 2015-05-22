@@ -1,3 +1,3 @@
 #schoolproject
 
-Projeto de teste de multi-módulo maven com apache shiro
+Project TEST multi module maven + spring 4 and apache shiro
